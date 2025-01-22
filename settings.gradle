@@ -1,0 +1,3 @@
+include 'cloudautomation'
+include 'cloudautomation.ide'
+include 'cloudautomation.web'

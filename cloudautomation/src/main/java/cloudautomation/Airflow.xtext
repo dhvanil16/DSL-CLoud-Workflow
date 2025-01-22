@@ -1,0 +1,29 @@
+grammar cloudautomation.Airflow with org.eclipse.xtext.common.Terminals
+
+generate airflow "http://www.Airflow.cloudautomation"
+
+Model:
+    workflows+=Workflow*;
+
+Workflow:
+    'Workflow' name=ID '{'
+        description=STRING
+        tasks+=Task*
+        dependencies+=Dependency* 
+    '}';
+
+Task:
+    'Task' name=ID '{'
+        description=STRING
+        priority=Priority
+        type=TaskType
+    '}';
+
+Dependency:
+    'dependsOn' task=ID 'on' taskId=ID;
+
+Priority:
+    LOW = 'Low' | MEDIUM = 'Medium' | HIGH = 'High';
+
+TaskType:
+    SIMPLE = 'Simple' | COMPOUND = 'Compound';

@@ -1,0 +1,24 @@
+Workflow MyFirstWorkflow {
+    "This is a sample workflow"
+    
+    Task TaskA {
+        "Initialize the environment"
+        Low
+        Simple
+    }
+
+    Task TaskB {
+        "Process data and generate report"
+        High
+        Compound
+    }
+
+    Task TaskC {
+        "Archive the logs"
+        Medium
+        Simple
+    }
+
+    dependsOn TaskB on TaskA
+    dependsOn TaskC on TaskB
+}
